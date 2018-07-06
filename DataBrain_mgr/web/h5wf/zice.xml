@@ -1,0 +1,61 @@
+<process  id="process1492584165209" name="process1492584165209">
+	<HiveReader componentID="HiveReader0" type="hive" tableName="overdue">
+		<step>
+			<name>hive_model_12341000</name>
+			<type>hive</type>
+			<description/>
+			<GUI>
+				<xloc>611</xloc>
+				<yloc>246</yloc>
+			</GUI>
+		</step>
+	</HiveReader>
+	<HiveReader componentID="HiveReader1" type="hive" tableName="loan_time">
+		<step>
+			<name>hive_model_55031000</name>
+			<type>hive</type>
+			<description/>
+			<GUI>
+				<xloc>822</xloc>
+				<yloc>252</yloc>
+			</GUI>
+		</step>
+	</HiveReader>
+	<SelfDefinedFeature componentID="SelfDefinedFeature3" type="SelfDefinedFeature" tableName="user_info.csv">
+		<step>
+			<name>SelfDefinedFeature_model_33631000</name>
+			<type>SelfDefinedFeature</type>
+			<description/>
+			<GUI>
+				<xloc>1028</xloc>
+				<yloc>438</yloc>
+			</GUI>
+		</step>
+	</SelfDefinedFeature>
+	<RobotXSpark componentID="RobotXSpark2" type="robotx_spark" souid="HiveReader0,HiveReader1">
+		<step>
+			<name>robotx_spark_model_57581000</name>
+			<type>robotx_spark</type>
+			<description/>
+			<GUI>
+				<xloc>715</xloc>
+				<yloc>437</yloc>
+			</GUI>
+		</step>
+	</RobotXSpark>
+	<Combination componentID="FeatureCombine4" type="combination" souid="RobotXSpark2,SelfDefinedFeature3">
+		<step>
+			<name>combination_model_77121000</name>
+			<type>combination</type>
+			<description/>
+			<GUI>
+				<xloc>866</xloc>
+				<yloc>655</yloc>
+			</GUI>
+		</step>
+	</Combination>
+	<sequenceFlow  id="con_43" name="con_43" sourceRef="hive_model_12341000"  targetRef="robotx_spark_model_57581000"  anchors_1="0.5,1,0,1,0,0" anchors_2="0,0.5,-1,0,0,0" sourceRefs="HiveReader0" targetRefs="RobotXSpark2" ></sequenceFlow>
+	<sequenceFlow  id="con_64" name="con_64" sourceRef="hive_model_55031000"  targetRef="robotx_spark_model_57581000"  anchors_1="0.5,1,0,1,0,0" anchors_2="1,0.5,1,0,0,0" sourceRefs="HiveReader1" targetRefs="RobotXSpark2" ></sequenceFlow>
+	<sequenceFlow  id="con_85" name="con_85" sourceRef="robotx_spark_model_57581000"  targetRef="combination_model_77121000"  anchors_1="0.5,1,0,1,0,0" anchors_2="0,0.5,-1,0,0,0" sourceRefs="RobotXSpark2" targetRefs="FeatureCombine4" ></sequenceFlow>
+	<sequenceFlow  id="con_106" name="con_106" sourceRef="SelfDefinedFeature_model_33631000"  targetRef="combination_model_77121000"  anchors_1="0.5,1,0,1,0,0" anchors_2="1,0.5,1,0,0,0" sourceRefs="SelfDefinedFeature3" targetRefs="FeatureCombine4" ></sequenceFlow>
+</process>

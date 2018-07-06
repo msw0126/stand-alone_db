@@ -1,0 +1,38 @@
+from django.apps import AppConfig
+
+class CommModelConfig(AppConfig):
+    name = 'comm_model'
+
+class COMPONENTS:
+    FEATURE_COMBINE="FeatureCombine"
+    CSV_READER = "CsvReader"
+    ROBOTX = 'RobotX'
+    ATOM_LEARN = 'AtomLearn'
+    ATOM_ACT = "AtomAct"
+    ATOM_TEST = "AtomTest"
+    ATOM_EXPLORE = "AtomExplore"
+
+
+class ExecutionStatus:
+
+    RUNNING = "RUNNING"
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"
+
+
+EXECUTABLE = [COMPONENTS.ROBOTX,COMPONENTS.ATOM_LEARN,COMPONENTS.ATOM_ACT,COMPONENTS.ATOM_TEST,COMPONENTS.ATOM_EXPLORE]
+# 全部执行
+FULL_EXECUTION = 'FULL_EXECUTION'
+# 继续执行
+CONT_EXECUTION = 'CONT_EXECUTION'
+# 当前简单执行
+SING_EXECUTION = 'SING_EXECUTION'
+
+# 状态
+PENDING = "PENDING"
+SUBMITTED = "SUBMITTED"
+RUNNING = "RUNNING"
+FAILED = "FAILED"
+KILLED = "KILLED"
+SUCCEEDED = "SUCCEEDED"
+FINISHED = "FINISHED"

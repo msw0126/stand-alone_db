@@ -1,0 +1,62 @@
+<process  id="process1492584165209" name="process1492584165209">
+	<CsvReader componentID="CsvReader4" type="reader" tableName="user_info.csv" enName="user_info">
+		<step>
+			<name>reader_model_33741000</name>
+			<type>reader</type>
+			<description/>
+			<GUI>
+				<xloc>399</xloc>
+				<yloc>175</yloc>
+			</GUI>
+		</step>
+	</CsvReader>
+	<AtomLearn componentID="AtomLearn5" type="learn" souid="CsvReader4">
+		<step>
+			<name>learn_model_72821000</name>
+			<type>learn</type>
+			<description/>
+			<GUI>
+				<xloc>495</xloc>
+				<yloc>348</yloc>
+			</GUI>
+		</step>
+	</AtomLearn>
+	<AtomAct componentID="AtomAct6" type="act" souid="AtomLearn5,CsvReader4">
+		<step>
+			<name>act_model_7541000</name>
+			<type>act</type>
+			<description/>
+			<GUI>
+				<xloc>729</xloc>
+				<yloc>350</yloc>
+			</GUI>
+		</step>
+	</AtomAct>
+	<AtomTest componentID="AtomTest7" type="test" souid="AtomAct6,CsvReader4">
+		<step>
+			<name>test_model_23301000</name>
+			<type>test</type>
+			<description/>
+			<GUI>
+				<xloc>495</xloc>
+				<yloc>590</yloc>
+			</GUI>
+		</step>
+	</AtomTest>
+	<AtomExplore componentID="AtomExplore13" type="explore" souid="">
+		<step>
+			<name>explore_model_57461000</name>
+			<type>explore</type>
+			<description/>
+			<GUI>
+				<xloc>686</xloc>
+				<yloc>592</yloc>
+			</GUI>
+		</step>
+	</AtomExplore>
+	<sequenceFlow  id="con_33" name="con_33" sourceRef="reader_model_33741000"  targetRef="learn_model_72821000"  anchors_1="0.5,1,0,1,0,0" anchors_2="0.5,0,0,-1,0,0" sourceRefs="CsvReader4" targetRefs="AtomLearn5" ></sequenceFlow>
+	<sequenceFlow  id="con_54" name="con_54" sourceRef="learn_model_72821000"  targetRef="act_model_7541000"  anchors_1="1,0.5,1,0,0,0" anchors_2="0,0.5,-1,0,0,0" sourceRefs="AtomLearn5" targetRefs="AtomAct6" ></sequenceFlow>
+	<sequenceFlow  id="con_75" name="con_75" sourceRef="reader_model_33741000"  targetRef="act_model_7541000"  anchors_1="1,0.5,1,0,0,0" anchors_2="0.5,0,0,-1,0,0" sourceRefs="CsvReader4" targetRefs="AtomAct6" ></sequenceFlow>
+	<sequenceFlow  id="con_96" name="con_96" sourceRef="act_model_7541000"  targetRef="test_model_23301000"  anchors_1="0.5,1,0,1,0,0" anchors_2="0.5,0,0,-1,0,0" sourceRefs="AtomAct6" targetRefs="AtomTest7" ></sequenceFlow>
+	<sequenceFlow  id="con_117" name="con_117" sourceRef="reader_model_33741000"  targetRef="test_model_23301000"  anchors_1="0.5,1,0,1,0,0" anchors_2="0,0.5,-1,0,0,0" sourceRefs="CsvReader4" targetRefs="AtomTest7" ></sequenceFlow>
+</process>
